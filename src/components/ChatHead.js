@@ -6,14 +6,17 @@ import MoreVertOutlinedIcon from '@mui/icons-material/MoreVertOutlined';
 import VideocamIcon from '@mui/icons-material/Videocam';
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 import SearchTwoToneIcon from '@mui/icons-material/SearchTwoTone';
+import { Avatar } from '@mui/material';
 
-function ChatHead() {
+function ChatHead({name, profileUrl}) {
   const [user] = useAuthState(auth)
   return (
     <div className="h-16 bg-gray-100 p-2 flex justify-between items-center space-x-5">
     <div className='flex space-x-2 items-center'>
-      <img src={user?.photoURL} className='rounded-full' width={50} />
-      <h2>{user?.displayName}</h2>
+      {
+        profileUrl ? (<img src={user?.photoURL} className='rounded-full' width={50} />) : (<Avatar sx={{ width: 50, height: 50 }}>{name?.[0]}</Avatar>)
+      }
+      <h2>{name}</h2>
     </div>
     <div className="flex items-center">
     <IconButton

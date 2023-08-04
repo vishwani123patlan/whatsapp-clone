@@ -1,12 +1,5 @@
 import React, { useState } from 'react'
 import IconButton from '@mui/material/IconButton';
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
-import GroupsIcon from '@mui/icons-material/Groups';
-import AutorenewOutlinedIcon from '@mui/icons-material/AutorenewOutlined';
-import EditNoteOutlinedIcon from '@mui/icons-material/EditNoteOutlined';
-import MoreVertOutlinedIcon from '@mui/icons-material/MoreVertOutlined';
-import SearchIcon from '@mui/icons-material/Search';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from '../firebase';
@@ -45,7 +38,7 @@ function ProfileBar({setShowProfile}) {
       </div>
       <div className="overflow-y-auto h-screen">
         <div className='h-60 flex justify-center items-center'>
-          <img src={user?.photoURL} alt="" width={200} height={200} />
+          <img src={user?.photoURL} alt="" width={200} height={200} className="rounded-full" />
         </div>
         <div className='h-20 flex flex-col justify-evenly pl-3 bg-white'>
           <p className='text-green-700'>Your name</p>
